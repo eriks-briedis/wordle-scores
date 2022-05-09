@@ -1,15 +1,14 @@
-import config from './config';
+import config from './config'
 import type { ScoresResponse } from './models'
-
 
 const getRealScoresFromNetwork = async () => {
   const headers = new Headers({
-    'X-Authorization': config.token,
-  });
+    'X-Authorization': config.token
+  })
 
   return await fetch(`${config.apiUrl}/scores`, {
     method: 'GET',
-    headers,
+    headers
   })
 }
 
