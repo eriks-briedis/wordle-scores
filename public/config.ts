@@ -1,5 +1,3 @@
-import 'dotenv/config'
-
 interface EnvConfig {
   apiUrl: string
   token: string
@@ -7,5 +5,5 @@ interface EnvConfig {
 
 export default {
   apiUrl: process.env.API_URL,
-  token: process.env.TOKEN
+  token: process.env.AUTH_TOKEN
 } as EnvConfig

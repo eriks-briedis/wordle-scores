@@ -20,7 +20,7 @@ export const Index: FunctionalComponent<Props> = ({ preloadedScores }) => {
     return db.getAll('scores')
   }, [db])
 
-  // TODO: useBackground(), subscribe for messages from the worker, and refetch()
+  useBackground()?.addEventListener('message', refetch)
 
   return (
     <Layout>

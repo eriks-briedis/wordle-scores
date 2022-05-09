@@ -1,11 +1,22 @@
+import config from './config';
 import type { ScoresResponse } from './models'
-import { getAllInitialResponse } from './test-responses'
+
+
+const getRealScoresFromNetwork = async () => {
+  const headers = new Headers({
+    'X-Authorization': config.token,
+  });
+
+  return await fetch(`${config.apiUrl}/scores`, {
+    method: 'GET',
+    headers,
+  })
+}
 
 export async function getScores(): Promise<ScoresResponse> {
   console.debug('getting scores…')
 
-  // TODO: const response = await getRealScoresFromNetwork(…)
-  const response = await getAllInitialResponse()
+  const response = await getRealScoresFromNetwork()
 
   if (response.ok) {
     const json = await response.json()

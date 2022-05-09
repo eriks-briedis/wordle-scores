@@ -1,5 +1,6 @@
 import type { FunctionalComponent } from 'preact'
 import type { Score } from '../models'
+import { Attempt } from './attempt';
 import styles from './score-item.module.css'
 
 type Props = {
@@ -8,15 +9,7 @@ type Props = {
 
 export const ScoreItem: FunctionalComponent<Props> = ({ score }) => (
   <li class={styles.item}>
-    <dl>
-      <dt>id</dt>
-      <dd>{score.id}</dd>
-      <dt>date</dt>
-      <dd>{score.date}</dd>
-      <dt>word</dt>
-      <dd>{score.word}</dd>
-      <dt>tries</dt>
-      <dd>{score.tries.join(', ')}</dd>
-    </dl>
+    Wordle {score.id} {score.tries.length}/6
+    {score.tries.map((word) => <Attempt word={word} correctWord={score.word} />)}
   </li>
 )
