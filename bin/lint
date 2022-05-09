@@ -4,6 +4,6 @@ set -eo pipefail
 
 cd $(dirname $0)/..
 
-dprint check
+./node_modules/.bin/dprint check
 npx --yes tsc --noEmit
 npx --yes tsc --noEmit -p ./tsconfig-workers.json
